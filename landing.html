@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Embudo - Landing</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; padding: 50px; }
+    .container { background: white; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, button { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #28a745; color: white; border: none; cursor: pointer; }
+    button:hover { background: #218838; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Únete a mi comunidad VIP</h1>
+    <p>Déjame tus datos y hablamos directo por WhatsApp 📲</p>
+    <form id="lead-form" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="correo" placeholder="Tu correo" required>
+      <button type="submit">Quiero unirme</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("lead-form");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      await fetch("https://script.google.com/macros/s/AKfycbx1bU69wCPrf0tnuOJ8KxVATP6Ij-rbGUJqr0VX_zUmZsi7FGurT9Ih4kHuVyHbgq-5/exec", {
+        method: "POST",
+        body: data
+      });
+
+      // Redirige a página de gracias con WhatsApp
+      window.location.href = "gracias.html?nombre=" + encodeURIComponent(data.get("nombre"));
+    });
+  </script>
+</body>
+</html>

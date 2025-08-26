@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Gracias!</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #e8f5e9; text-align: center; padding: 50px; }
+    .box { background: white; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    a { display: inline-block; margin-top: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    a:hover { background: #1ebe5a; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🎉 ¡Gracias por registrarte!</h1>
+    <p>Haz clic en el botón para escribirme directo en WhatsApp 👇</p>
+    <a id="whatsapp-link" target="_blank">Ir a WhatsApp</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get("nombre") || "amigo";
+
+    // Cambia el número por tu WhatsApp (con código de país, sin + ni 00)
+    const telefono = "5215512345678";  
+    const mensaje = `Hola, soy ${nombre}. Ya me registré en tu embudo y quiero más información.`;
+
+    //document.getElementById("whatsapp-link").href = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+    // Enlace de invitación a tu grupo de WhatsApp
+    //document.getElementById("whatsapp-link").href = "https://chat.whatsapp.com/FPANxStJhMRAmBgmBAfIJa?mode=ems_wa_t";
+    document.getElementById("whatsapp-link").href = "https://chat.whatsapp.com/Kkq4qanNLZd3J3acCIPBrq?mode=ems_copy_h_t";
+
+  </script>
+</body>
+</html>
